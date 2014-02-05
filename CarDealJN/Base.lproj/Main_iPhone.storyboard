@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4511" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9xY-Eo-zYV">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3745"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="mIr-CX-1eY">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="9xY-Eo-zYV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="Q3W-ja-XeO">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="VhJ-0D-AyV" kind="relationship" relationship="viewControllers" id="3BY-19-77a"/>
+                        <segue destination="2lh-4Q-wue" kind="relationship" relationship="viewControllers" id="47i-On-F7U"/>
+                        <segue destination="hGH-fc-Gqi" kind="relationship" relationship="viewControllers" id="wnc-28-wN3"/>
+                        <segue destination="b9w-fv-1ae" kind="relationship" relationship="viewControllers" id="slf-4e-grh"/>
+                        <segue destination="wcy-MX-2xq" kind="relationship" relationship="viewControllers" id="I5J-ZG-IkN"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TX7-QJ-DXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-339" y="176"/>
+        </scene>
+        <!--Tips View Controller - Tips-->
+        <scene sceneID="bgz-ou-Umi">
+            <objects>
+                <viewController storyboardIdentifier="TipsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2kw-mU-X0J" customClass="TipsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SaN-hw-v98"/>
+                        <viewControllerLayoutGuide type="bottom" id="ePw-r8-8gQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lVm-lO-5iq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mP1-LT-tc3" customClass="BBTableView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TipsCell" rowHeight="75" id="PIj-Ac-Wlp" customClass="TipsCell">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PIj-Ac-Wlp" id="cKX-MQ-nG1">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="164" translatesAutoresizingMaskIntoConstraints="NO" id="PJT-DA-1e3">
+                                                    <rect key="frame" x="4" y="8" width="164" height="58"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="tipLabel" destination="PJT-DA-1e3" id="SY3-PV-eAg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2kw-mU-X0J" id="x2h-dN-J9F"/>
+                                    <outlet property="delegate" destination="2kw-mU-X0J" id="wDH-hO-5ac"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tips" id="qVY-GQ-fFA"/>
+                    <connections>
+                        <outlet property="tipsTableView" destination="mP1-LT-tc3" id="ep4-YI-4BT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GkD-d1-QMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1265" y="308"/>
+        </scene>
+        <!--Loading Screen View Controller-->
+        <scene sceneID="Pt1-y0-Agq">
+            <objects>
+                <viewController storyboardIdentifier="LoadingScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gmk-aY-Ius" customClass="LoadingScreenViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jJj-XT-5cB"/>
+                        <viewControllerLayoutGuide type="bottom" id="3oD-ij-VOB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nKG-bj-w51">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKO-4N-Vm1">
+                                <rect key="frame" x="20" y="79" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="glY-1h-XT4">
+                                <rect key="frame" x="142" y="108" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GQF-66-OpJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-300" y="1086"/>
+        </scene>
+        <!--Contact Us View Controller - Contact Us-->
+        <scene sceneID="RBF-Zd-2ge">
+            <objects>
+                <viewController storyboardIdentifier="ContactUsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6w5-hv-I4X" customClass="ContactUsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pjR-0Z-NJT"/>
+                        <viewControllerLayoutGuide type="bottom" id="qVk-5m-hsA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wE1-Kl-36I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aboutMePic.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="x5L-vA-Yjy">
+                                <rect key="frame" x="0.0" y="65" width="320" height="209"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="bDK-Rn-13R">
+                                <rect key="frame" x="20" y="274" width="280" height="172"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Once upon a time there were three little Cars and the time came for them to leave home and seek their fortunes.
+
+Before they left, their Mechanic told them " Whatever you do , do it the best that you can because that's the way to get along in the world.                                Contact: 777-777-7777</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Contact Us" id="8R7-wF-yGS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l6c-Mx-0Vi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1274" y="995"/>
+        </scene>
+        <!--Financing View Controller - Financing-->
+        <scene sceneID="6hg-u8-PK3">
+            <objects>
+                <viewController storyboardIdentifier="FinancingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bAy-He-KD2" customClass="FinancingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hdH-aF-0fd"/>
+                        <viewControllerLayoutGuide type="bottom" id="exA-DX-5Cn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pfV-tj-0fR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqv-p5-eO4">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">"Most dealerships have a Finance and Insurance (F&amp;I) Department that will tell you about its available financing options. The F&amp;I Department manager will ask you to complete a credit application, which may include your:  
+
+name;
+Social Security number;
+date of birth;
+current and previous address(es) and length of stay;
+current and previous employer(s) and length of employment;
+occupation;
+sources of income;
+total gross monthly income; and
+financial information on current credit accounts, including debt obligations.
+Most dealerships will get a copy of your credit report, which has information about your current and past credit obligations, your payment record, and data from public records (for example, a bankruptcy filing from court documents). For each account, your credit report shows your account number, the type and terms of the account, the credit limit, the most recent balance and the most recent payment. The comments section describes the status of your account, including the creditor’s summary of past due information and legal steps that may have been taken to collect on those obligations.
+
+The dealership typically submits your credit application to one or more potential assignees, such as a bank, finance company or credit union, to determine their willingness to buy your contract from the dealer.
+
+The finance companies or other potential assignees evaluate your credit application using automated techniques like credit scoring, where factors like your credit history, length of employment, income, and expenses may be weighted and scored.
+
+The potential assignee will not deal directly with you when you finance through a dealer. It bases its evaluation on your credit report and credit score, the completed credit application, and the terms of the sale, such as the amount of the down payment. Each potential assignee decides whether it is willing to buy the contract, notifies the dealership of its decision and, if applicable, offers the dealership a wholesale rate, often called the buy rate, at which the assignee will buy the contract.
+
+Your dealer may offer manufacturer incentives, such as reduced finance rates or cash back on certain models. You may see these specials advertised in your area and online. Make sure you ask your dealer if the model you are interested in has any special financing offers. Generally, these discounted rates are not negotiable, may be limited by a consumer’s credit history, and/or are available only for certain makes, models, or model-year vehicles.
+
+When no special financing offers are available, you usually can negotiate the APR and the terms for payment with the dealership, just as you would negotiate the price of the vehicle. The APR that you negotiate with the dealer usually is higher than the wholesale rate, because it includes an amount that compensates the dealer for handling the financing. Negotiation can take place before or after the dealership accepts and processes your credit application. Try to negotiate the lowest APR with the dealer, just as you would negotiate the best price for the vehicle.
+
+Dealers who promote rebates, discounts or special prices must clearly explain what is required to qualify for these incentives. For example, these offers may involve being a recent college graduate or a member of the military, or they may involve reductions for only specific vehicles. Check to see if you qualify for any available rebates, discounts or offers as they can reduce your price and, therefore, the amount you finance or that is part of your lease.
+
+Most consumers who apply for credit will get a free credit score disclosure notice. This notice includes a credit score, the source of that score, and information about where your score falls with respect to other consumers.
+
+Ask questions about the terms of the contract before you sign. For example, ask whether the terms of the contract are final and have been fully approved before you sign and leave the dealership with the vehicle. If the dealer says they are still working on the approval, be aware that the deal is not yet final. Consider waiting to sign the contract and keeping your current vehicle until the financing has been fully approved. Or check other financing sources before you sign and before you leave your car at the dealership."                                  ====================================(FEDERAL TRADE COMMISSION, 2014)                                                            ==================...........................................................................................................................................................................................................................................................................................................................</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Financing" id="yor-65-KJK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yes-ak-tWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1290" y="1671"/>
+        </scene>
+        <!--Inventory View Controller - Inventory-->
+        <scene sceneID="bhf-dY-MGJ">
+            <objects>
+                <viewController storyboardIdentifier="InventoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2He-Gr-Wqt" customClass="InventoryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xOr-UL-ush"/>
+                        <viewControllerLayoutGuide type="bottom" id="Alg-JQ-tJA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="foy-N5-qmw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TCJ-Nb-ZVI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2He-Gr-Wqt" id="c1T-5C-KbW"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Inventory" id="bc6-Kc-08w"/>
+                    <connections>
+                        <outlet property="inventoryWebView" destination="TCJ-Nb-ZVI" id="zqz-tF-bsd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XaQ-No-KDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1271" y="-367"/>
+        </scene>
+        <!--Info View Controller - Info-->
+        <scene sceneID="Z6V-6S-q1k">
+            <objects>
+                <viewController storyboardIdentifier="InfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fwv-b6-a6B" customClass="InfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mIL-2O-udj"/>
+                        <viewControllerLayoutGuide type="bottom" id="lcH-7a-87I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eEW-iZ-cep">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="HHb-l9-qK1">
+                                <rect key="frame" x="20" y="237" width="280" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">This is the most amazing car dealership you will ever see for the simple fact is this application is to showcase the power of mobile applications with Business. Its the new age people.</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OQB-1S-P8p">
+                                <rect key="frame" x="0.0" y="63" width="320" height="166"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Fwv-b6-a6B" id="inw-WW-Bx3"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Info" id="ODX-O6-GoT"/>
+                    <connections>
+                        <outlet property="infoMapView" destination="OQB-1S-P8p" id="TIv-yq-1hb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jsx-5l-s2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1270" y="-1027"/>
+        </scene>
+        <!--Navigation Controller - Info-->
+        <scene sceneID="05P-Kh-chM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VhJ-0D-AyV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Info" id="jfX-Bx-RZH"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ugD-fy-KPJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Fwv-b6-a6B" kind="relationship" relationship="rootViewController" id="K0l-OS-a5f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rJJ-sZ-6x2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="744" y="-1027"/>
+        </scene>
+        <!--Navigation Controller - Inventory-->
+        <scene sceneID="OHJ-HA-dNN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2lh-4Q-wue" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Inventory" id="q4t-gD-owJ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rA4-pd-Nvv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2He-Gr-Wqt" kind="relationship" relationship="rootViewController" id="w1f-R2-JR6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fEQ-OR-zXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="745" y="-367"/>
+        </scene>
+        <!--Navigation Controller - Tips-->
+        <scene sceneID="KkF-C2-SxL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hGH-fc-Gqi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tips" id="D0K-qH-fPg"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oVl-xT-Er2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2kw-mU-X0J" kind="relationship" relationship="rootViewController" id="3B8-Pp-kHS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ad1-Yq-LkZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="739" y="308"/>
+        </scene>
+        <!--Navigation Controller - Contact Us-->
+        <scene sceneID="iSP-6I-JHA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b9w-fv-1ae" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Contact Us" id="fdc-0u-9Hc"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rW9-4K-s8X">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6w5-hv-I4X" kind="relationship" relationship="rootViewController" id="9JP-OB-Sk8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WTf-EN-g78" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="748" y="995"/>
+        </scene>
+        <!--Navigation Controller - Financing-->
+        <scene sceneID="MWa-oa-isB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wcy-MX-2xq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Financing" id="ksk-Vm-rhQ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="edH-9h-Zhv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bAy-He-KD2" kind="relationship" relationship="rootViewController" id="fSa-nz-Bcb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sVG-R3-cco" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="1671"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="aboutMePic.jpg" width="206" height="274"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
