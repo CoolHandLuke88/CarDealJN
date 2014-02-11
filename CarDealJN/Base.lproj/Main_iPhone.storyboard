@@ -127,12 +127,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aboutMePic.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="x5L-vA-Yjy">
-                                <rect key="frame" x="0.0" y="65" width="320" height="209"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="bDK-Rn-13R">
-                                <rect key="frame" x="20" y="274" width="280" height="172"/>
+                                <rect key="frame" x="20" y="230" width="280" height="172"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">Once upon a time there were three little Cars and the time came for them to leave home and seek their fortunes.
 
@@ -140,10 +136,20 @@ Before they left, their Mechanic told them " Whatever you do , do it the best th
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WAp-wJ-FQR">
+                                <rect key="frame" x="0.0" y="64" width="320" height="158"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="6w5-hv-I4X" id="0ul-Ps-SAL"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Contact Us" id="8R7-wF-yGS"/>
+                    <connections>
+                        <outlet property="mapView" destination="WAp-wJ-FQR" id="3vx-Xt-575"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l6c-Mx-0Vi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -165,7 +171,7 @@ Before they left, their Mechanic told them " Whatever you do , do it the best th
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">"Most dealerships have a Finance and Insurance (F&amp;I) Department that will tell you about its available financing options. The F&amp;I Department manager will ask you to complete a credit application, which may include your:  
+                                <string key="text">"Most dealerships have a Finance and Insurance (F&amp;I) Department that will tell you about its available financing options. The F&amp;I Department manager will ask you to complete a credit application, which may include your:  
 
 name;
 Social Security number;
@@ -192,7 +198,7 @@ Dealers who promote rebates, discounts or special prices must clearly explain wh
 
 Most consumers who apply for credit will get a free credit score disclosure notice. This notice includes a credit score, the source of that score, and information about where your score falls with respect to other consumers.
 
-Ask questions about the terms of the contract before you sign. For example, ask whether the terms of the contract are final and have been fully approved before you sign and leave the dealership with the vehicle. If the dealer says they are still working on the approval, be aware that the deal is not yet final. Consider waiting to sign the contract and keeping your current vehicle until the financing has been fully approved. Or check other financing sources before you sign and before you leave your car at the dealership."                                  ====================================(FEDERAL TRADE COMMISSION, 2014)                                                            ==================...........................................................................................................................................................................................................................................................................................................................</mutableString>
+Ask questions about the terms of the contract before you sign. For example, ask whether the terms of the contract are final and have been fully approved before you sign and leave the dealership with the vehicle. If the dealer says they are still working on the approval, be aware that the deal is not yet final. Consider waiting to sign the contract and keeping your current vehicle until the financing has been fully approved. Or check other financing sources before you sign and before you leave your car at the dealership."                                  ====================================(FEDERAL TRADE COMMISSION, 2014)                                                            ==================...........................................................................................................................................................................................................................................................................................................................</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -205,10 +211,10 @@ Ask questions about the terms of the contract before you sign. For example, ask 
             </objects>
             <point key="canvasLocation" x="1290" y="1671"/>
         </scene>
-        <!--Inventory View Controller - Inventory-->
+        <!--List View Controller - Inventory-->
         <scene sceneID="bhf-dY-MGJ">
             <objects>
-                <viewController storyboardIdentifier="InventoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2He-Gr-Wqt" customClass="InventoryViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2He-Gr-Wqt" customClass="ListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xOr-UL-ush"/>
                         <viewControllerLayoutGuide type="bottom" id="Alg-JQ-tJA"/>
@@ -217,25 +223,85 @@ Ask questions about the terms of the contract before you sign. For example, ask 
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TCJ-Nb-ZVI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FBJ-Id-MrQ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="list" textLabel="Gfc-QY-ByV" style="IBUITableViewCellStyleDefault" id="Fgv-Ox-NGS">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fgv-Ox-NGS" id="S2U-qe-0qB">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gfc-QY-ByV">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <outlet property="delegate" destination="2He-Gr-Wqt" id="c1T-5C-KbW"/>
+                                    <outlet property="dataSource" destination="2He-Gr-Wqt" id="KNv-M9-2Yx"/>
+                                    <outlet property="delegate" destination="2He-Gr-Wqt" id="NNi-fB-Pq1"/>
                                 </connections>
-                            </webView>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Inventory" id="bc6-Kc-08w"/>
                     <connections>
-                        <outlet property="inventoryWebView" destination="TCJ-Nb-ZVI" id="zqz-tF-bsd"/>
+                        <outlet property="tableview" destination="FBJ-Id-MrQ" id="YDa-8e-6Gs"/>
+                        <outlet property="view" destination="foy-N5-qmw" id="6mU-Fy-jtp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XaQ-No-KDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1271" y="-367"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Mye-GE-ojq">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3hW-BS-77f" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wBb-m8-cTI"/>
+                        <viewControllerLayoutGuide type="bottom" id="mdF-Gc-Je6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p4L-jh-NwS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4To-zC-K5t">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="thing" id="caS-dy-gFm">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="caS-dy-gFm" id="CU1-lV-frH">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="3hW-BS-77f" id="uK2-gU-k9K"/>
+                                    <outlet property="delegate" destination="3hW-BS-77f" id="ShF-rC-siJ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R8T-mp-AgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1610" y="-367"/>
         </scene>
         <!--Info View Controller - Info-->
         <scene sceneID="Z6V-6S-q1k">
@@ -257,24 +323,140 @@ Ask questions about the terms of the contract before you sign. For example, ask 
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OQB-1S-P8p">
-                                <rect key="frame" x="0.0" y="63" width="320" height="166"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Fwv-b6-a6B" id="inw-WW-Bx3"/>
-                                </connections>
-                            </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aboutMePic.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Wqq-QO-tjP">
+                                <rect key="frame" x="0.0" y="64" width="320" height="165"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Info" id="ODX-O6-GoT"/>
-                    <connections>
-                        <outlet property="infoMapView" destination="OQB-1S-P8p" id="TIv-yq-1hb"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jsx-5l-s2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1270" y="-1027"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="mBI-iG-LTr">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3iM-xh-FJv" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2eW-ZO-TtR"/>
+                        <viewControllerLayoutGuide type="bottom" id="jw3-HJ-EDI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I6F-sY-Sgk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="Meteor TodoS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4B-OL-4fe">
+                                <rect key="frame" x="20" y="81" width="280" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="CLL-mf-fJe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="jesse@rebounds.net" borderStyle="line" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iCu-AZ-SpX">
+                                <rect key="frame" x="20" y="146" width="280" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="lzw-II-VVp"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BA8-fY-oyK">
+                                <rect key="frame" x="20" y="262" width="280" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="I7u-RY-OKO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapLoginButton:" destination="3iM-xh-FJv" eventType="touchUpInside" id="hoo-8N-iCq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="Not Connected to Todo Server" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t86-5O-lBU">
+                                <rect key="frame" x="20" y="527" width="256" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="a07-7Y-Mcw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" image="red_light.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wac-am-rna">
+                                <rect key="frame" x="280" y="527" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="0u6-Rn-18Z"/>
+                                    <constraint firstAttribute="width" constant="20" id="Uep-a4-JRG"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8J-Fi-WUz">
+                                <rect key="frame" x="20" y="314" width="280" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Trn-aA-sz3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Say Hello">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapSayHiButton" destination="3iM-xh-FJv" eventType="touchUpInside" id="y8z-PD-i1o"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="airport" borderStyle="line" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kg7-DN-Xlb">
+                                <rect key="frame" x="20" y="200" width="280" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="klq-xr-CgX"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="t86-5O-lBU" firstAttribute="centerY" secondItem="Wac-am-rna" secondAttribute="centerY" id="2Ze-iM-y5X"/>
+                            <constraint firstItem="kg7-DN-Xlb" firstAttribute="top" secondItem="iCu-AZ-SpX" secondAttribute="bottom" constant="8" symbolic="YES" id="8hj-Zq-GE1"/>
+                            <constraint firstItem="t86-5O-lBU" firstAttribute="top" secondItem="Wac-am-rna" secondAttribute="top" id="VZg-FK-VbF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="connectionStatusLight" destination="Wac-am-rna" id="Ci3-Qn-vXf"/>
+                        <outlet property="connectionStatusText" destination="t86-5O-lBU" id="bTj-Lp-hy3"/>
+                        <outlet property="loginButton" destination="BA8-fY-oyK" id="75n-lT-W0L"/>
+                        <outlet property="password" destination="kg7-DN-Xlb" id="rkJ-u0-EqZ"/>
+                        <outlet property="sayHiButton" destination="V8J-Fi-WUz" id="rDM-so-b3Z"/>
+                        <outlet property="username" destination="iCu-AZ-SpX" id="ddW-uk-Pqw"/>
+                        <outlet property="view" destination="I6F-sY-Sgk" id="gXF-f3-q8Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B3e-xs-sEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="496" y="-1805"/>
         </scene>
         <!--Navigation Controller - Info-->
         <scene sceneID="05P-Kh-chM">
@@ -374,6 +556,7 @@ Ask questions about the terms of the contract before you sign. For example, ask 
     </scenes>
     <resources>
         <image name="aboutMePic.jpg" width="206" height="274"/>
+        <image name="red_light.png" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

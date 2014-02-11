@@ -2,11 +2,16 @@
 //  AppDelegate.m
 //  CarDealJN
 //
-//  Created by Luke McDonald on 1/29/14.
+//  Created by jonathan Marr-Cox on 1/29/14.
 //  Copyright (c) 2014 JonathanMarCox. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import "LoginViewController.h"
+
+NSString *const LoginSuccessNotification = @"LoginSuccessNotification";
+
 
 @interface AppDelegate ()
 @property (strong, nonatomic) LoadingScreenViewController *loadingScreenViewController;
@@ -21,6 +26,24 @@
     _loadingScreenViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"LoadingScreenViewController"];
     _loadingScreenViewController.view.alpha = 0.0f;
     
+    self.meteorClient = [[MeteorClient alloc] init];
+    [self.meteorClient addSubscription:@"things"];
+    [self.meteorClient addSubscription:@"lists"];
+    
+     ObjectiveDDP *ddp = [[ObjectiveDDP alloc] initWithURLString:@"wss://ddptester.meteor.com/websocket" delegate:self.meteorClient];
+    
+    // local testing
+    //ObjectiveDDP *ddp = [[ObjectiveDDP alloc] initWithURLString:@"ws://localhost:3000/websocket" delegate:self.meteorClient];
+    
+    self.meteorClient.ddp = ddp;
+    [self.meteorClient.ddp connectWebSocket];
+    
+    LoginViewController *loginController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    loginController.meteor = self.meteorClient;
+    [self presentLogin:loginController];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reportConnection) name:MeteorClientDidConnectNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reportDisconnection) name:MeteorClientDidDisconnectNotification object:nil];
     return YES;
 }
 							
@@ -44,12 +67,26 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    [self.meteorClient.ddp connectWebSocket];
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - Meteor Related Methods
+
+- (void)reportConnection {
+    NSLog(@"================> connected to server!");
+}
+
+- (void)reportDisconnection {
+    NSLog(@"================> disconnected from server!");
+}
+
 
 #pragma mark - Custom Methods
 
@@ -58,6 +95,23 @@
     return (AppDelegate *)[UIApplication sharedApplication].delegate;
 }
 
+- (void)presentLogin:(LoginViewController *)loginViewController
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.window.rootViewController presentViewController:loginViewController animated:YES completion:nil];
+
+    });
+}
+
+
+- (void)showLogin
+{
+       LoginViewController *loginController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.window.rootViewController presentViewController:loginController animated:YES completion:nil];
+        
+    });
+}
 #pragma mark - Loading Screen
 
 - (void)addLoadingScreenWithParentViewController:(UIViewController *)parentViewController

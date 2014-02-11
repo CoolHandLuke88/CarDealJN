@@ -2,7 +2,7 @@
 //  TipsViewController.m
 //  CarDealJN
 //
-//  Created by Luke McDonald on 1/29/14.
+//  Created byjonathan Marr-Cox on 1/29/14.
 //  Copyright (c) 2014 JonathanMarCox. All rights reserved.
 //
 

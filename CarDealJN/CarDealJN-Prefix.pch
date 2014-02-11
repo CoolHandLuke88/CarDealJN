@@ -16,5 +16,5 @@
     #import <MapKit/MapKit.h>
     #import "LoadingScreenViewController.h"
     #import "AppDelegate.h"
-
+    #import "SocketIO.h"
 #endif
