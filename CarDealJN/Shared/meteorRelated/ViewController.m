@@ -30,6 +30,25 @@
     return self;
 }
 
+- (void)filterWords:(NSString *)word
+{
+
+    
+	NSDictionary * filteredWords = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    @"fecal matter",@"poop",
+                                    @"patooti",@"butt",
+                                    @"Worst band ever",@"Nickelback",
+                                    @"nice person",@"douche bag",nil];
+    
+	for(NSString * naughtyWord in filteredWords.allKeys) {
+		NSString * goodWord = [filteredWords objectForKey:naughtyWord];
+//		NSLog(@"replacing %@ ",naughtyWord);
+//		word = [newString stringByReplacingOccurrencesOfString:naughtyWord
+//                                                         withString:goodWord];
+	}
+    
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.title = self.listName;
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc ] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
@@ -55,9 +74,26 @@
     [self.tableview reloadData];
 }
 
-- (NSArray *)computedList {
+- (NSMutableArray *)computedList {
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"(listName like %@)", self.listName];
-    return [self.meteor.collections[@"things"] filteredArrayUsingPredicate:pred];
+    NSMutableArray *filtBadWordsArray = [NSMutableArray new];
+    
+    NSArray *array = [self.meteor.collections[@"things"] filteredArrayUsingPredicate:pred];
+    [filtBadWordsArray addObjectsFromArray:array];
+    
+    for (NSDictionary *dict in array)
+    {
+        if (dict[@"msg"])
+        {
+            NSString *word = dict[@"msg"];
+            if ([word isEqualToString:@"Eat shit"] || [word isEqualToString:@"Buy shit"])
+            {
+                [filtBadWordsArray removeObject:dict];
+            }
+        }
+    }
+    
+    return filtBadWordsArray;
 }
 
 #pragma mark UI Actions
